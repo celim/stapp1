@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import time
 
 st.title("My streamlit")
@@ -14,10 +13,10 @@ st.sidebar.selectbox('Select Page',['Home','Prediction'])
 
 st.camera_input("Camera")
 
-rand=np.random.normal(1, 2, size=20)
-fig, ax = plt.subplots()
-ax.hist(rand, bins=15)
-st.pyplot(fig)
+# rand=np.random.normal(1, 2, size=20)
+# fig, ax = plt.subplots()
+# ax.hist(rand, bins=15)
+# st.pyplot(fig)
 
 df= pd.DataFrame(np.random.randn(10, 2),columns=['x', 'y'])
 st.line_chart(df)
