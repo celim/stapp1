@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 import time
 
+# getting started
+# https://celim-stapp1-app-fsvmgy.streamlitapp.com/
+
+
 st.title("My streamlit")
 
 st.write("fantasic !!!")
@@ -13,11 +17,21 @@ st.sidebar.selectbox('Select Page',['Home','Prediction'])
 
 st.camera_input("Camera")
 
-# rand=np.random.normal(1, 2, size=20)
-# fig, ax = plt.subplots()
-# ax.hist(rand, bins=15)
-# st.pyplot(fig)
+# image
+st.subheader("Image")
 
+# file 표시
+st.image('testimage.jpg',caption='display with file')
+
+# http
+url = 'http://localhost:8002'
+r = requests.get(f'{url}/image')
+print(r.content)
+image = np.array(Image.open(io.BytesIO(r.content))) 
+st.image(image,caption='display with httpget')
+
+# 
+st.subheader("Dataframe")
 df= pd.DataFrame(np.random.randn(10, 2),columns=['x', 'y'])
 st.line_chart(df)
 st.bar_chart(df)
